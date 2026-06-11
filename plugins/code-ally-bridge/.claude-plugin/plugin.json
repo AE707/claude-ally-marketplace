@@ -1,6 +1,6 @@
 {
   "name": "code-ally-bridge",
-  "description": "Bridge Claude Code to Code Ally - automatically creates files using Code Ally",
+  "description": "Routes file creation requests from Claude to Code Ally",
   "version": "1.0.0",
   "author": {
     "name": "Your Name"
@@ -12,8 +12,14 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "path": { "type": "string", "description": "File path to write" },
-          "content": { "type": "string", "description": "Content to write" }
+          "path": {
+            "type": "string",
+            "description": "The file path to write"
+          },
+          "content": {
+            "type": "string",
+            "description": "The content to write to the file"
+          }
         },
         "required": ["path", "content"]
       }
@@ -24,19 +30,26 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "path": { "type": "string", "description": "Folder path to create" }
+          "path": {
+            "type": "string",
+            "description": "The folder path to create"
+          }
         },
         "required": ["path"]
       }
     }
   ],
-  "commands": [
+  "hooks": [
     {
-      "name": "ally",
-      "description": "Send a command to Code Ally",
-      "arguments": [
-        { "name": "command", "description": "The command to execute", "required": true }
-      ]
+      "event": "beforeFileWrite",
+      "handler": "handleFileWrite"
     }
-  ]
+  ],
+  "handlers": {
+    "handleFileWrite": {
+      "type": "command",
+      "command": "node",
+      "args": ["C:\\Users\\AE7_0\\claude-ally-marketplace\\plugins\\code-ally-bridge\\handler.js"]
+    }
+  }
 }
