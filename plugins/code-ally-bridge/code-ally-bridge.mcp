@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "code-ally-bridge": {
+      "command": "node",
+      "args": ["C:\\Users\\AE7_0\\claude-ally-marketplace\\plugins\\code-ally-bridge\\.mcp\\server.js"]
+    }
+  }
+}
