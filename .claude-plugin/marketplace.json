@@ -1,0 +1,23 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "claude-ally-marketplace",
+  "owner": {
+    "name": "Your Name",
+    "email": "your-email@example.com"
+  },
+  "metadata": {
+    "description": "Bridge Claude Code to Code Ally for file operations",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "code-ally-bridge",
+      "description": "Routes file creation requests from Claude to Code Ally",
+      "version": "1.0.0",
+      "source": "./plugins/code-ally-bridge",
+      "author": {
+        "name": "Your Name"
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "name": "code-ally-bridge",
+  "description": "Bridge Claude Code to Code Ally - automatically creates files using Code Ally",
+  "version": "1.0.0",
+  "author": {
+    "name": "Your Name"
+  },
+  "tools": [
+    {
+      "name": "write_file_with_ally",
+      "description": "Write a file using Code Ally instead of Claude Code",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "path": { "type": "string", "description": "File path to write" },
+          "content": { "type": "string", "description": "Content to write" }
+        },
+        "required": ["path", "content"]
+      }
+    },
+    {
+      "name": "create_folder_with_ally",
+      "description": "Create a folder using Code Ally",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "path": { "type": "string", "description": "Folder path to create" }
+        },
+        "required": ["path"]
+      }
+    }
+  ],
+  "commands": [
+    {
+      "name": "ally",
+      "description": "Send a command to Code Ally",
+      "arguments": [
+        { "name": "command", "description": "The command to execute", "required": true }
+      ]
+    }
+  ]
+}
